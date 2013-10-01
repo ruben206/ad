@@ -1,5 +1,5 @@
 using System;
-
+using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
 namespace serpis.ad
@@ -28,7 +28,7 @@ namespace serpis.ad
 		
 		public static void Main (string[] args)
 		{
-			String connectionString = "Server=localhost;" +
+			string connectionString = "Server=localhost;" +
 				"Database=dbprueba;" +
 				"User Id=root; " +
 				"Password=sistemas";
@@ -44,25 +44,26 @@ namespace serpis.ad
 			
 			MySqlDataReader mySqlDataReader = mysqlCommand.ExecuteReader();
 			
-			int colums = mySqlDataReader.FieldCount;
+//			int colums = mySqlDataReader.FieldCount;
+//			
+//			for(int i= 0; i<colums; i++){
+//				Console.Write(mySqlDataReader.GetName(i));
+//				Console.Write("     ");
+//			}
+//			
+//			Console.WriteLine("");
+			Console.WriteLine(string.Join("  ", getColumnNames(mySqlDataReader)));
 			
-			for(int i= 0; i<colums; i++){
-				Console.Write(mySqlDataReader.GetName(i));
-				Console.Write("     ");
-			}
-			
-			Console.WriteLine("");
-			
-			while(mySqlDataReader.Read()){
-				for(int i= 0; i<colums; i++){
-					Console.Write(mySqlDataReader.GetValue(i));
-					Console.Write("     ");
-					
-				}
-				Console.WriteLine("");
-				
-			}
-			Console.WriteLine(mySqlDataReader.GetName(1));
+//			while(mySqlDataReader.Read()){
+//				for(int i= 0; i<colums; i++){
+//					Console.Write(mySqlDataReader.GetValue(i));
+//					Console.Write("     ");
+//					
+//				}
+//				Console.WriteLine("");
+//				
+//			}
+//			Console.WriteLine(mySqlDataReader.GetName(1));
 			
 			
 			mySqlDataReader.Close();
@@ -72,5 +73,20 @@ namespace serpis.ad
 			Console.WriteLine ("OK");
 			
 		}
+		private static string[] getColumnNames(MySqlDataReader mySqlDataReader){
+			int fieldCount = mySqlDataReader.FieldCount;
+			String[] columnNames = new String[ fieldCount ];
+			for(int index = 0; index < fieldCount; index ++)
+					columnNames[index] = mySqlDataReader.GetName (index);
+			
+				return columnNames;		
+	}
+		private static string[] getColumnNames2(MySqlDataReader mySqlDataReader){
+			int fieldCount = mySqlDataReader.FieldCount;
+			List<string> columnNames = new List<string>();
+			for(int index=0; index < fieldCount; index ++)
+				columnNames.Add (mySqlDataReader.GetName(index));
+			return columnNames.ToArray();
+		}		
 	}
 }
