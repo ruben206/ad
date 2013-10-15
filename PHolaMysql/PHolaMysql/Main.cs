@@ -40,7 +40,7 @@ namespace serpis.ad
 //			Select * from categoria
 			MySqlCommand mysqlCommand = mySqlConnection.CreateCommand();
 			
-			mysqlCommand.CommandText = "Select * from categoria";
+			mysqlCommand.CommandText = "Select * from articulo ";
 			
 			MySqlDataReader mySqlDataReader = mysqlCommand.ExecuteReader();
 			
@@ -53,6 +53,14 @@ namespace serpis.ad
 //			
 //			Console.WriteLine("");
 			Console.WriteLine(string.Join("  ", getColumnNames(mySqlDataReader)));
+			
+			//Visualizar Datos...
+			
+			while(mySqlDataReader.Read ()){
+				
+					Console.WriteLine(getLine(mySqlDataReader));
+			}
+	
 			
 //			while(mySqlDataReader.Read()){
 //				for(int i= 0; i<colums; i++){
@@ -73,6 +81,17 @@ namespace serpis.ad
 			Console.WriteLine ("OK");
 			
 		}
+		private static string getLine (MySqlDataReader mySqlDataReader){
+			String line ="";
+				for(int i = 0 ; i < mySqlDataReader.FieldCount ; i++){
+					object value = mySqlDataReader.GetValue(i);
+					if(value is DBNull)
+						value = "null";
+					line = line + value + "   ";
+				}
+			return line;
+		}
+		
 		private static string[] getColumnNames(MySqlDataReader mySqlDataReader){
 			int fieldCount = mySqlDataReader.FieldCount;
 			String[] columnNames = new String[ fieldCount ];
