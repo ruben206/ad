@@ -1,6 +1,6 @@
 using Gtk;
-using MySql.Data.MySqlClient;
 using System;
+using MySql.Data.MySqlClient;
 
 namespace Serpis.Ad
 {

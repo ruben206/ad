@@ -5,9 +5,9 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D434AF94-3F68-4121-B7F9-DC08A9580E35}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>PGestion</RootNamespace>
+    <ProjectGuid>{7A4203B4-118B-41E0-A6CC-BEFC4A061A7F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Serpis.Ad</RootNamespace>
     <AssemblyName>PGestion</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -30,37 +30,58 @@
     <PlatformTarget>x86</PlatformTarget>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="CategoriaListView.cs" />
-    <Compile Include="gtk-gui\generated.cs" />
-    <Compile Include="MainWindow.cs" />
-    <Compile Include="gtk-gui\MainWindow.cs" />
-    <Compile Include="ArticuloListView.cs" />
-    <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Main.cs" />
-    <Compile Include="CategoriaView.cs" />
-    <Compile Include="gtk-gui\PGestion.CategoriaView.cs" />
-    <Compile Include="BotonAdd.cs" />
-    <Compile Include="gtk-gui\PGestion.BotonAdd.cs" />
-  </ItemGroup>
-  <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
       <Package>gtk-sharp-2.0</Package>
     </Reference>
     <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>glib-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>glade-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
       <Package>gtk-sharp-2.0</Package>
     </Reference>
     <Reference Include="Mono.Posix" />
+    <Reference Include="System.Data" />
     <Reference Include="MySql.Data, Version=6.4.3.0, Culture=neutral, PublicKeyToken=20449f9ba87f7ae2">
       <Private>False</Private>
       <Package>mysql-connector-net</Package>
     </Reference>
-    <Reference Include="System.Data" />
+    <Reference Include="PSerpisAd">
+      <HintPath>..\..\PSerpisAd\PSerpisAd\bin\Debug\PSerpisAd.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gtk-gui\generated.cs" />
+    <Compile Include="MainWindow.cs" />
+    <Compile Include="gtk-gui\MainWindow.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="CategoriaListView.cs" />
+    <Compile Include="Categoria.cs" />
+    <Compile Include="CategoriaController.cs" />
+    <Compile Include="CategoriaView.cs" />
+    <Compile Include="gtk-gui\Serpis.Ad.CategoriaView.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

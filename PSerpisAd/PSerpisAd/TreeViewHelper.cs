@@ -23,7 +23,10 @@ namespace Serpis.Ad
 			dataReader.Close ();
 			treeView.Model = listStore;
 		}
-		
+		public TreeViewHelper (TreeView treeView, string selectSql):this(treeView,App.Instance.DbConnection,selectSql)
+		{
+			
+		}
 		private void fillListStore(IDataReader dataReader) {
 			while (dataReader.Read ()) {
 				List<string> values = new List<string>();
@@ -57,16 +60,6 @@ namespace Serpis.Ad
 				return string.Empty;
 			}
 		}
-		
-		public bool HasSelected {
-			get {
-				//TODO implementar
-				throw new NotImplementedException();
-			}
-		}
-
-		//TODO implementar
-		public event EventHandler Changed;
 		
 		private string[] getColumnNames(IDataReader dataReader) {
 			List<string> columnNames = new List<string>();
