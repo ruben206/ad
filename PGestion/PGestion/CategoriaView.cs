@@ -8,7 +8,18 @@ namespace Serpis.Ad
 				base(Gtk.WindowType.Toplevel)
 		{
 			this.Build ();
+			
+			saveAction.Activated += delegate {
+				
+			};
 		}
+		public string Nombre {
+			get {return entryNombre.Text;}
+			set {entryNombre.Text = value;}
+		}
+		public Gtk.Action SaveAction{
+			get{return saveAction;}
+		}
+		
 	}
 }
-

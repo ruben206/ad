@@ -33,7 +33,8 @@ namespace Serpis.Ad
 			return categoria;
 		}
 		
-		public static void Save(Categoria categoria) {
+		public static void Save(Categoria categoria) { 
+			DbCommandUtil dbComandUtil = new DbCommandUtil ();
 			IDbCommand updateDbCommand = App.Instance.DbConnection.CreateCommand ();
 			updateDbCommand.CommandText = "update categoria set nombre=@nombre where id=" + categoria.Id;
 			DbCommandUtil.AddParameter (updateDbCommand, "nombre", categoria.Nombre);
