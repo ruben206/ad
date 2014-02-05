@@ -27,27 +27,35 @@ namespace Serpis.Ad
 			propertyInfo.SetValue(obj, "El nombre que yo quiera", null);
 			return obj;
 		}
-		
-		public static Categoria Load(string id) {
-			IDbCommand selectDbCommand = App.Instance.DbConnection.CreateCommand ();
-			selectDbCommand.CommandText = "select nombre from categoria where id=" + id;
-			IDataReader dataReader = selectDbCommand.ExecuteReader();
-			dataReader.Read(); //lee el primero
-
-			Categoria categoria = new Categoria();
-			categoria.Id = int.Parse (id);
-			categoria.Nombre = dataReader["nombre"].ToString();
-			
-			dataReader.Close ();
-			return categoria;
-		}
-		
-		public static void Save(Categoria categoria) { 
+		public static object Save(Type type, string id) {
+			object obj = Activator.CreateInstance(type);
 			IDbCommand updateDbCommand = App.Instance.DbConnection.CreateCommand ();
 			updateDbCommand.CommandText = "update categoria set nombre=@nombre where id=" + categoria.Id;
-			DbCommandUtil.AddParameter (updateDbCommand, "nombre", categoria.Nombre);
-			updateDbCommand.ExecuteNonQuery ();			
+			DbCommandUtil.AddParameter (obj.updateDbCommand);
+			updateDbCommand.ExecuteNonQuery ();
+			return obj;
 		}
+		
+//		public static Categoria Load(string id) {
+//			IDbCommand selectDbCommand = App.Instance.DbConnection.CreateCommand ();
+//			selectDbCommand.CommandText = "select nombre from categoria where id=" + id;
+//			IDataReader dataReader = selectDbCommand.ExecuteReader();
+//			dataReader.Read(); //lee el primero
+//
+//			Categoria categoria = new Categoria();
+//			categoria.Id = int.Parse (id);
+//			categoria.Nombre = dataReader["nombre"].ToString();
+//			
+//			dataReader.Close ();
+//			return categoria;
+//		}
+//		
+//		public static void Save(Categoria categoria) { 
+//			IDbCommand updateDbCommand = App.Instance.DbConnection.CreateCommand ();
+//			updateDbCommand.CommandText = "update categoria set nombre=@nombre where id=" + categoria.Id;
+//			DbCommandUtil.AddParameter (updateDbCommand, "nombre", categoria.Nombre);
+//			updateDbCommand.ExecuteNonQuery ();			
+//		}
 	}
 	public class FieldAttribute : Attribute{
 	}

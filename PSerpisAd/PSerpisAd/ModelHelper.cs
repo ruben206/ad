@@ -23,10 +23,6 @@ namespace Serpis.Ad
 		public static object Load(Type type, string id){
 			IDbCommand selectDbCommand = App.Instance.DbConnection.CreateCommand();
 			selectDbCommand.CommandText = GetSelect(type) + id;
-			IDataReader
-		}
-		public static object Save (Categoria categoria){
-			
 		}
 	}
 }
