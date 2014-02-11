@@ -47,6 +47,8 @@
     <Compile Include="ModelHelper.cs" />
     <Compile Include="FieldAttribute.cs" />
     <Compile Include="KieAttribute.cs" />
+    <Compile Include="Modelinfo.cs" />
+    <Compile Include="ModelInfoStore.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

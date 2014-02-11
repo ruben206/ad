@@ -21,8 +21,13 @@ namespace Serpis.Ad
 			                      tableName, keyName);
 		}
 		public static object Load(Type type, string id){
-			IDbCommand selectDbCommand = App.Instance.DbConnection.CreateCommand();
-			selectDbCommand.CommandText = GetSelect(type) + id;
+			object obj = Activator.CreateInstance(type);
+			PropertyInfo propertyInfo = type.GetProperty("Nombre");
+			propertyInfo.SetValue(obj, "El nombre que yo quiera", null);
+			return obj;
+		}
+		public static void Save(object obj){
+			
 		}
 	}
 }
