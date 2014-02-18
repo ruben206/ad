@@ -26,7 +26,6 @@ namespace Serpis.Ad
 			comboBox.AddAttribute (cellRendererText, "text", 1);
 			
 			listStore = new ListStore(typeof(int), typeof(string));
-			//TODO localización para "sin asignar"
 			TreeIter initialTreeIter = listStore.AppendValues(0, "<sin asignar>");
 			IDbCommand dbCommand = dbConnection.CreateCommand ();
 			dbCommand.CommandText = string.Format(selectFormat, keyFieldName, valueFieldName, tableName);

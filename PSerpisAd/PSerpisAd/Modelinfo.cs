@@ -10,8 +10,6 @@ namespace Serpis.Ad
 		{
 			this.type = type;
 			tableName = type.Name.ToLower();
-			
-			
 			fieldPropertyInfos = new List<PropertyInfo>();
 			FieldNames = new List<string>();
 			

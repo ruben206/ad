@@ -29,7 +29,6 @@ namespace Serpis.Ad
 			Modelinfo modelinfo = new Modelinfo(typeof(MdelinfoFoo));
 			Assert.AreEqual("modelinfofoo",modelinfo.TableName);
 		}
-		
 		[Test]
 		public void keyPropertyInfo(){
 			Modelinfo modelinfo = new Modelinfo(typeof(MdelinfoFoo));
@@ -51,7 +50,6 @@ namespace Serpis.Ad
 			fieldPropertyInfos = modelinfo.FieldPropertyInfos;
 			Assert.AreEqual(1, fieldPropertyInfos.Length);
 		}
-		
 		[Test]
 		public vois FieldNames(){
 			Modelinfo modelinfo = ModelInfoStore.Get(typeof(ModelinfoFoo));

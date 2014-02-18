@@ -14,7 +14,7 @@ namespace Serpis.Ad
 		private uint mergeId;
 		private ActionGroup actionGroup;
 		public void SetActionGroup(ActionGroup actionGroup) {
-			if (this.actionGroup != null) { //this.actionGroup es el anterior
+			if (this.actionGroup != null) { 
 				uIManager.RemoveUi(mergeId);
 				uIManager.RemoveActionGroup(this.actionGroup);
 			}

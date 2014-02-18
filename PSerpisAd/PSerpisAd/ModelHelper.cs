@@ -57,7 +57,7 @@ namespace Serpis.Ad
 				if (propertyInfo.IsDefined (typeof(KeyAttribute), true))
 					keyParameter = formatParameter(propertyInfo.Name.ToLower);
 				else if (propertyInfo.IsDefined (typeof(FieldAttribute), true))
-					
+					fieldParameters.Add (formatParameter(propertyInfo.Name.ToLower()));
 			}
 			
 		}

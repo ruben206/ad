@@ -55,8 +55,7 @@ namespace Serpis.Ad
 			get {
 				TreeIter treeIter;
 				if (treeView.Selection.GetSelected(out treeIter))
-					return listStore.GetValue (treeIter, 0).ToString(); //Id suponemos que la column 0
-				//else
+					return listStore.GetValue (treeIter, 0).ToString(); 
 				return string.Empty;
 			}
 		}
