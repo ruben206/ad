@@ -8,8 +8,9 @@ namespace Serpis.Ad
 	{
 		public static void Main (string[] args)
 		{
-			object obj = Categoria.Load (typeof(Categoria), "");
-			Console.WriteLine ("obj.GetType()={0}", obj.GetType ());
+			
+			int i = (int)Convert.ChangeType("123", typeof(int));
+			Console.WriteLine ("i={0}", i);
 			return;
 			
 			App.Instance.DbConnection = new MySqlConnection("Server=localhost;Database=dbprueba;User Id=root;Password=sistemas");
